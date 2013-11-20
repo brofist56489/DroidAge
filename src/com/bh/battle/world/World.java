@@ -1,5 +1,6 @@
 package com.bh.battle.world;
 
+import com.bh.battle.Game;
 import com.bh.battle.astar.AStarLevel;
 import com.bh.battle.world.tiles.ConnectedTile;
 import com.bh.battle.world.tiles.Tile;
@@ -15,7 +16,7 @@ public class World extends AStarLevel {
 		tiles = new Tile[w][h];
 		for(int y=0; y<h; y++) {
 			for(int x=0; x<w; x++) {
-				tiles[x][y] = Tile.makeTile(TileType.VOID);
+				tiles[x][y] = Tile.makeTile((Game.getRandom().nextInt(10) < 8) ? TileType.VOID : TileType.SOLID);
 			}
 		}
 	}
@@ -31,6 +32,7 @@ public class World extends AStarLevel {
 		if(x < 0 || y < 0 || x >= width || y >= height) {
 			return;
 		}
+		tiles[x][y] = Tile.makeTile(type);
 	}
 	
 	public void checkConnections() {

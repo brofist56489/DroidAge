@@ -6,7 +6,7 @@ import com.bh.battle.world.World;
 
 public class Tile extends AStarTile {
 	public static enum TileType {
-		VOID(0, -1, 0, false, false);
+		VOID(0, 0, 0, false, false), SOLID(1, 1, 0, true, false), PATH(2, 2, 0, true, false);
 		
 		private int id;
 		private int special;

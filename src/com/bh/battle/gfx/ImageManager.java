@@ -8,7 +8,7 @@ public class ImageManager {
 	static {
 		images = new HashMap<String, Image>();
 		
-		
+		addImage("/textures/tileMap.png", "tileMap");
 	}
 	
 	public static void addImage(String path, String name) {

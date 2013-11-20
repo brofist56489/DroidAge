@@ -31,6 +31,7 @@ public class GameConnection implements Runnable {
 	
 	public void initiateAsServer() {
 		try {
+			@SuppressWarnings("resource")
 			ServerSocket ss = new ServerSocket(Constants.PORT);
 			Socket cs = ss.accept();
 			dis = new DataInputStream(cs.getInputStream());
@@ -44,6 +45,7 @@ public class GameConnection implements Runnable {
 	
 	public void initiateAsClient() {
 		try {
+			@SuppressWarnings("resource")
 			Socket ss = new Socket(InetAddress.getByName(Constants.CLIENT_TARGET), Constants.PORT);
 			dis = new DataInputStream(ss.getInputStream());
 			dos = new DataOutputStream(ss.getOutputStream());
